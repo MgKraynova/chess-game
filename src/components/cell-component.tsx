@@ -6,5 +6,7 @@ type TCellComponentProps = {
 };
 
 export const CellComponent = ({ cell }: TCellComponentProps) => {
-  return <div className={["cell", cell.color.toLowerCase()].join(" ")}></div>;
+  return <div className={["cell", cell.color.toLowerCase()].join(" ")}>
+    {cell.figure?.logo && <img className="figureImage" src={cell.figure?.logo} alt={cell.figure.name} />}
+  </div>;
 };

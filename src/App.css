@@ -33,3 +33,9 @@
 .white {
   background-color: #eed4ac;
 }
+
+.figureImage {
+  width: 48px;
+  height: 48px;
+  position: relative;
+}

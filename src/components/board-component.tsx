@@ -8,7 +8,6 @@ type TBoardComponentProps = {
 };
 
 export const BoardComponent = ({ board, setBoard }: TBoardComponentProps) => {
-  console.log("board.cells", board.cells);
   return (
     <div className="board">
       {board.cells.map((row) =>
