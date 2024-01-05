@@ -71,7 +71,6 @@ export class Cell {
     const minValue = Math.min(this.y, target.y);
     const maxValue = Math.max(this.y, target.y);
 
-
     for (let y = minValue + 1; y < maxValue; y++) {
       const cellToCheck = this.board.getCell(target.x, y);
 
@@ -86,6 +85,36 @@ export class Cell {
   };
 
   getIsEmptyDiagonalLine = (target: Cell) => {
+    const absX = Math.abs(target.x - this.x);
+    const absY = Math.abs(target.y - this.y);
+    const isDiagonalCell = absX === absY;
+
+    if (!isDiagonalCell) {
+      return false;
+    }
+
+    const isTargetAheadByXCoordinate = target.x - this.x > 0;
+
+    const isTargetAheadByYCoordinate = target.y - this.y > 0;
+
+    // i = 1, т к при 0 будет проверяться текущая ячейка
+    for (let i = 1; i < absX; i++) {
+      const xCoordinateOfNextCell = isTargetAheadByXCoordinate
+        ? this.x + i
+        : this.x - i;
+      const yCoordinateOfNextCell = isTargetAheadByYCoordinate
+        ? this.y + i
+        : this.y - i;
+
+      const isNextCellEmpty = this.board
+        .getCell(xCoordinateOfNextCell, yCoordinateOfNextCell)
+        .getIsCellEmpty();
+
+      if (!isNextCellEmpty) {
+        return false;
+      }
+    }
+
     return true;
   };
 }
