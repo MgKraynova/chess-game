@@ -7,7 +7,7 @@ export enum FIGURE_NAME {
   KING = "KING",
   KNIGHT = "KNIGHT", // конь
   PAWN = "PAWN", // пешка
-  QUEEN = "QUEEN", 
+  QUEEN = "QUEEN",
   ROOK = "ROOK", // ладья
   BISHOP = "BISHOP", // ферзь
 }
@@ -33,9 +33,16 @@ export class Figure {
     this.id = Math.random();
   }
 
-  getIsFugureCanMoveToTarget = (target: Cell) => {
-    return true;
-  };
+  getIsFugureCanMoveToTarget(target: Cell) {
+    if (this.color === target.figure?.color) {
+      return false;
+    }
 
-  moveFigure = (target: Cell) => {}
+    if (target.figure?.name === FIGURE_NAME.KING) {
+      return false;
+    }
+    return true;
+  }
+
+  moveFigure = (target: Cell) => {};
 }

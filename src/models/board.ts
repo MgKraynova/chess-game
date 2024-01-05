@@ -95,4 +95,26 @@ export class Board {
     this.addRooks();
     this.addKnights();
   };
+
+  public highlightCells = (selectedCell: Cell | null) => {
+    for (let i = 0; i < this.cells.length; i++) {
+      const currentRow = this.cells[i];
+
+      for (let j = 0; j < currentRow.length; j++) {
+        const possibleTarget = currentRow[j];
+
+        possibleTarget.available =
+          selectedCell?.figure?.getIsFugureCanMoveToTarget(possibleTarget) ||
+          false;
+      }
+    }
+  };
+
+  public getCopy = () => {
+    const boardCopy  = new Board();
+
+    boardCopy.cells = this.cells;
+
+    return boardCopy;
+  }
 }

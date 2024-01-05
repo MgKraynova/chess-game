@@ -39,3 +39,19 @@
   height: 48px;
   position: relative;
 }
+
+.availableCell {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: green;
+}
+
+.figureCanBeTaken {
+  background-color: green;
+}
+
+
+.selectedCell {
+  background-color: brown;
+}
