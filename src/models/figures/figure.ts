@@ -7,9 +7,9 @@ export enum FIGURE_NAME {
   KING = "KING",
   KNIGHT = "KNIGHT", // конь
   PAWN = "PAWN", // пешка
-  QUEEN = "QUEEN",
+  QUEEN = "QUEEN", // ферзь
   ROOK = "ROOK", // ладья
-  BISHOP = "BISHOP", // ферзь
+  BISHOP = "BISHOP", // слон
 }
 
 export type TFigureProps = {
@@ -41,7 +41,7 @@ export class Figure {
     if (target.figure?.name === FIGURE_NAME.KING) {
       return false;
     }
-    
+
     return true;
   }
 
