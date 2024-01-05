@@ -19,18 +19,25 @@ export class Queen extends Figure {
     if (isTargetIsTheSameColorOrKing) {
       return false;
     }
-    
-    const queenCanMoveToTargetByVerticalLine =
+
+    const isCanMoveToTargetByVerticalLine =
       this.cell.getIsEmptyVerticalLine(target);
 
-    const queenCanMoveToTargetByHorizontalLine =
+    const isCanMoveToTargetByHorizontalLine =
       this.cell.getIsEmptyHorisontalLine(target);
 
-    if (queenCanMoveToTargetByVerticalLine) {
+    const isCanMoveToTargetByDiagonalLine =
+      this.cell.getIsEmptyDiagonalLine(target);
+
+    if (isCanMoveToTargetByVerticalLine) {
       return true;
     }
 
-    if (queenCanMoveToTargetByHorizontalLine) {
+    if (isCanMoveToTargetByHorizontalLine) {
+      return true;
+    }
+
+    if (isCanMoveToTargetByDiagonalLine) {
       return true;
     }
 
