@@ -1,4 +1,3 @@
-import { Board } from "./../board";
 import { Figure, TFigureProps, FIGURE_NAME } from "./figure";
 import { COLORS } from "../color";
 import blackLogo from "../../assets/black-pawn.png";
