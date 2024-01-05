@@ -1,5 +1,12 @@
 # React + TypeScript + Vite
 
+Шахматы сделаны по уроку Ulbi TV "Шахматы на React и TypeScript С НУЛЯ. Практикуем ООП".
+
+Дополнительно к уроку:
+- [x] - сделан рефакторинг кода: изменены названия констант и методов, часть логики вынесена в дополнительные константы и методы
+- [x] - добавлена логика ходов короля
+
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
