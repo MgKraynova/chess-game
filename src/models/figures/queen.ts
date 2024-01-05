@@ -12,21 +12,25 @@ export class Queen extends Figure {
   }
 
   getIsFugureCanMoveToTarget = (target: Cell) => {
-    super.getIsFugureCanMoveToTarget(target);
+    const isTargetIsTheSameColorOrKing = !super.getIsFugureCanMoveToTarget(
+      target
+    );
 
+    if (isTargetIsTheSameColorOrKing) {
+      return false;
+    }
+    
     const queenCanMoveToTargetByVerticalLine =
       this.cell.getIsEmptyVerticalLine(target);
 
-    if (target.x === 3) {
-      console.log("target", target);
-
-      console.log(
-        "queenCanMoveToTargetByVerticalLine",
-        queenCanMoveToTargetByVerticalLine
-      );
-    }
+    const queenCanMoveToTargetByHorizontalLine =
+      this.cell.getIsEmptyHorisontalLine(target);
 
     if (queenCanMoveToTargetByVerticalLine) {
+      return true;
+    }
+
+    if (queenCanMoveToTargetByHorizontalLine) {
       return true;
     }
 

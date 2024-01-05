@@ -34,13 +34,14 @@ export class Figure {
   }
 
   getIsFugureCanMoveToTarget(target: Cell) {
-    if (this.color === target.figure?.color) {
+    if (this?.cell?.figure?.color === target.figure?.color) {
       return false;
     }
 
     if (target.figure?.name === FIGURE_NAME.KING) {
       return false;
     }
+    
     return true;
   }
 

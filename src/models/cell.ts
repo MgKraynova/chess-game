@@ -51,7 +51,7 @@ export class Cell {
     const minValue = Math.min(this.x, target.x);
     const maxValue = Math.max(this.x, target.x);
 
-    for (let x = minValue + 1; x <= maxValue; x++) {
+    for (let x = minValue + 1; x < maxValue; x++) {
       const cellToCheck = this.board.getCell(x, target.y);
 
       const isCellToCheckFilled = !cellToCheck.getIsCellEmpty();
