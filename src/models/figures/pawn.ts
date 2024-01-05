@@ -50,8 +50,24 @@ export class Pawn extends Figure {
       if (this.isFirstMove && isTwoStepsToTarget) {
         return true;
       }
+    }
 
-      return false;
+    const isTargetInTheNextHorizontalRow =
+      this.cell.y + stepWithDirection === target.y;
+    const isTargetOnTheLeftDiagonal =
+      target.x === this.cell.x + stepWithDirection &&
+      isTargetInTheNextHorizontalRow;
+    const isTargetOnTheRightDiagonal =
+      target.x === this.cell.x - stepWithDirection &&
+      isTargetInTheNextHorizontalRow;
+
+    const isTargetCanBeAttacked =
+      this.cell.getIsTargerCellCanBeAttacked(target);
+
+    if (isTargetCanBeAttacked) {
+      if (isTargetOnTheLeftDiagonal || isTargetOnTheRightDiagonal) {
+        return true;
+      }
     }
 
     return false;
