@@ -11,9 +11,21 @@ export class Bishop extends Figure {
     this.name = FIGURE_NAME.BISHOP;
   }
 
-  getIsFugureCanMoveToTarget = (target: Cell) => {
-    super.getIsFugureCanMoveToTarget(target)
+  getIsFugureCanMoveToTarget(target: Cell): boolean {
+    const isTargetIsTheSameColorOrKing = !super.getIsFugureCanMoveToTarget(
+      target
+    );
 
-    return true
-  };
+    if (isTargetIsTheSameColorOrKing) {
+      return false;
+    }
+    const isCanMoveToTargetByDiagonalLine =
+      this.cell.getIsEmptyDiagonalLine(target);
+
+    if (isCanMoveToTargetByDiagonalLine) {
+      return true;
+    }
+
+    return false;
+  }
 }
