@@ -5,6 +5,7 @@ import { CellComponent } from "./cell-component";
 import { Cell } from "../models/cell";
 import { FIGURE_NAME, Figure } from "../models/figures/figure";
 import { Player } from "../models/player";
+import { COLORS } from "../models/color";
 
 type TBoardComponentProps = {
   board: Board;
@@ -74,19 +75,25 @@ export const BoardComponent = ({
   };
 
   return (
-    <div className="board">
-      {board.cells.map((row) =>
-        row.map((cell, cellIndex) => (
-          <CellComponent
-            isSelected={
-              selectedCell?.x === cell.x && selectedCell?.y === cell.y
-            }
-            cell={cell}
-            key={cellIndex}
-            handleSelectCell={handleSelectCell}
-          />
-        ))
-      )}
+    <div>
+      <h3>
+         Текущий игрок -{" "}
+        {currentPlayer?.color === COLORS.BLACK ? "черный" : "белый"}
+      </h3>
+      <div className="board">
+        {board.cells.map((row) =>
+          row.map((cell, cellIndex) => (
+            <CellComponent
+              isSelected={
+                selectedCell?.x === cell.x && selectedCell?.y === cell.y
+              }
+              cell={cell}
+              key={cellIndex}
+              handleSelectCell={handleSelectCell}
+            />
+          ))
+        )}
+      </div>
     </div>
   );
 };
