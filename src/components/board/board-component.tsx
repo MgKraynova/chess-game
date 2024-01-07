@@ -26,13 +26,6 @@ export const BoardComponent = ({
     const isClickOnEnemyFigure =
       cell.figure && cell.figure?.color !== currentPlayer?.color;
 
-    // ДОБАВИТЬ ЛОГИКУ при клике на недоступную клетку во время хода снимаем выделение фигуры
-    // if (selectedCell && !cell.available) {
-    //   setSelectedCell(null);
-    //   highlightCells(null);
-    //   return;
-    // }
-
     // выделяем или снимаем выделение с фигуры
     if (cell.figure && !isClickOnEnemyFigure) {
       const isSecondClickAtSelectedCell =
