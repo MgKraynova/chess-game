@@ -1,16 +1,7 @@
-import { Cell } from "./../cell";
-import { COLORS } from "./../color";
+import { Cell } from "../cell";
+import { COLORS } from "../color";
 import Logo from "../../assets/black-bishop.png";
-
-export enum FIGURE_NAME {
-  FIGURE = "FIGURE",
-  KING = "Король",
-  KNIGHT = "Конь", // конь
-  PAWN = "Пешка", // пешка
-  QUEEN = "Королева", // ферзь
-  ROOK = "Ладья", // ладья
-  BISHOP = "Слон", // слон
-}
+import { FIGURE_NAME } from "../../const/figure-name.const";
 
 export type TFigureProps = {
   color: COLORS;
@@ -45,7 +36,5 @@ export class Figure {
     return true;
   }
 
-  moveFigure(target: Cell) {
-
-  }
+  moveFigure(target: Cell) {}
 }

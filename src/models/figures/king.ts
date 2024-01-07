@@ -1,8 +1,9 @@
-import { Figure, TFigureProps, FIGURE_NAME } from "./figure";
+import { Figure, TFigureProps } from "./figure";
 import { COLORS } from "../color";
 import blackLogo from "../../assets/black-king.png";
 import whiteLogo from "../../assets/white-king.png";
 import { Cell } from "../cell";
+import { FIGURE_NAME } from "../../const/figure-name.const";
 
 export class King extends Figure {
   constructor({ color, cell }: TFigureProps) {
