@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { BoardComponent } from "./components/board-component";
-import { Board } from "./models/board";
-import { Player } from "./models/player";
-import { COLORS } from "./models/color";
-import { Timer } from "./components/timer-component";
+import { BoardComponent } from "../board-component";
+import { Board } from "../../models/board";
+import { Player } from "../../models/player";
+import { COLORS } from "../../models/color";
+import { Timer } from "../timer-component";
 
 export const App = () => {
-  const [board, setBoard] = useState(new Board());
+  const whitePlayer = new Player(COLORS.WHITE);
+  const blackPlayer = new Player(COLORS.BLACK);
 
-  const [whitePlayer, setWhitePlayer] = useState(new Player(COLORS.WHITE));
-  const [blackPlayer, setBlackPlayer] = useState(new Player(COLORS.BLACK));
+  const [board, setBoard] = useState(new Board());
   const [currentPlayer, setCurrentPlayer] = useState<Player | null>(null);
 
   useEffect(() => {
