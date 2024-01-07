@@ -1,5 +1,5 @@
-import { Figure } from "../models/figures/figure";
-import "../App.css";
+import { Figure } from "../../models/figures/figure";
+import "./lost-figures.css";
 
 type TProps = {
   title: string;
@@ -7,7 +7,6 @@ type TProps = {
 };
 
 export const LostFigures = ({ title, lostFigures }: TProps) => {
-  console.log(title, lostFigures);
   return (
     <div className="lostFiguresContainer">
       <h2>{title}</h2>

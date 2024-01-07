@@ -1,0 +1,11 @@
+.board {
+  width: calc(64px * 8);
+  height: calc(64px * 8);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.boardContainer {
+  display: flex;
+  gap: 20px;
+}

@@ -1,0 +1,36 @@
+.cell {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.black {
+  background-color: deepskyblue;
+}
+
+.white {
+  background-color: #eed4ac;
+}
+
+.figureCanBeTaken {
+  background-color: green;
+}
+
+.selectedCell {
+  background-color: brown;
+}
+
+.figureImage {
+  width: 48px;
+  height: 48px;
+  position: relative;
+}
+
+.availableCell {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: green;
+}

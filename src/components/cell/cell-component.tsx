@@ -1,5 +1,5 @@
-import "../App.css";
-import { Cell } from "../models/cell";
+import "./cell.css";
+import { Cell } from "../../models/cell";
 
 type TCellComponentProps = {
   cell: Cell;
@@ -17,7 +17,7 @@ export const CellComponent = ({
       className={[
         "cell",
         cell.color.toLowerCase(),
-        cell.available && cell.figure ? 'figureCanBeTaken' : '',
+        cell.available && cell.figure ? "figureCanBeTaken" : "",
         isSelected ? "selectedCell" : "",
       ].join(" ")}
       onClick={() => handleSelectCell(cell)}

@@ -1,0 +1,9 @@
+.lostFiguresTitleContainer {
+  display: flex;
+  gap: 4px;
+}
+
+.lostFiguresContainer {
+  background-color: burlywood;
+  height: 50%;
+}

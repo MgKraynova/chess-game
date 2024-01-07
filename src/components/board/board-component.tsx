@@ -1,11 +1,11 @@
 import { useState } from "react";
-import "../App.css";
-import { Board } from "../models/board";
-import { CellComponent } from "./cell-component";
-import { Cell } from "../models/cell";
-import { Player } from "../models/player";
-import { COLORS } from "../models/color";
-import { LostFigures } from "./lost-figures-component";
+import "./board.css";
+import { Board } from "../../models/board";
+import { CellComponent } from "../cell/cell-component";
+import { Cell } from "../../models/cell";
+import { Player } from "../../models/player";
+import { COLORS } from "../../models/color";
+import { LostFigures } from "../lost-figures/lost-figures-component";
 
 type TBoardComponentProps = {
   board: Board;
@@ -23,10 +23,6 @@ export const BoardComponent = ({
   const [selectedCell, setSelectedCell] = useState<Cell | null>(null);
 
   const handleSelectCell = (cell: Cell) => {
-    // if (selectedCell?.figure?.name === FIGURE_NAME.QUEEN) {
-    debugger;
-    // }
-
     const isClickOnEnemyFigure =
       cell.figure && cell.figure?.color !== currentPlayer?.color;
 
