@@ -4,7 +4,7 @@ import { BoardComponent } from "../board/board-component";
 import { Board } from "../../models/board";
 import { Player } from "../../models/player";
 import { COLORS } from "../../models/color";
-import { Timer } from "../timer-component";
+import { Timer } from "../timer/timer-component";
 
 export const App = () => {
   const whitePlayer = new Player(COLORS.WHITE);

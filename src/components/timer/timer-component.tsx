@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { Player } from "../models/player";
-import { COLORS } from "../models/color";
+import { Player } from "../../models/player";
+import { COLORS } from "../../models/color";
+import { INITIAL_TIME_FOR_PLAYER } from "./timer.const";
 
 type TProps = {
   restartGame: () => void;
@@ -8,14 +9,16 @@ type TProps = {
 };
 
 export const Timer = ({ restartGame, currentPlayer }: TProps) => {
-  const [blackTime, setBlackTime] = useState(300);
-  const [whiteTime, setWhiteTime] = useState(300);
+  const [blackTime, setBlackTime] = useState(INITIAL_TIME_FOR_PLAYER);
+  const [whiteTime, setWhiteTime] = useState(INITIAL_TIME_FOR_PLAYER);
 
   useEffect(() => {
     startTimer();
   }, [currentPlayer]);
 
   const timer = useRef<null | ReturnType<typeof setInterval>>(null);
+
+  const decrementTimeByOneSecond = (previousTime: number) => previousTime - 1;
 
   const startTimer = () => {
     if (timer.current) {
@@ -24,24 +27,16 @@ export const Timer = ({ restartGame, currentPlayer }: TProps) => {
 
     timer.current = setInterval(() => {
       if (currentPlayer?.color === COLORS.WHITE) {
-        decrementWhiteTimer();
+        setWhiteTime(decrementTimeByOneSecond);
       } else {
-        decrementBlackTimer();
+        setBlackTime(decrementTimeByOneSecond);
       }
     }, 1000);
   };
 
-  const decrementWhiteTimer = () => {
-    setWhiteTime((prevTime) => prevTime - 1);
-  };
-
-  const decrementBlackTimer = () => {
-    setBlackTime((prevTime) => prevTime - 1);
-  };
-
   const handleRestartGame = () => {
-    setBlackTime(300);
-    setWhiteTime(300);
+    setBlackTime(INITIAL_TIME_FOR_PLAYER);
+    setWhiteTime(INITIAL_TIME_FOR_PLAYER);
     restartGame();
   };
 
