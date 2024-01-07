@@ -33,6 +33,10 @@ export class Cell {
     if (this.figure && this.figure.getIsFugureCanMoveToTarget(target)) {
       this.figure.moveFigure(target);
 
+      if (target.figure) {
+        this.addFiguresToLost(target.figure);
+      }
+
       target.figure = this.figure;
       target.figure.cell = target;
       this.figure = null;
@@ -124,5 +128,13 @@ export class Cell {
     }
 
     return false;
+  };
+
+  addFiguresToLost = (figure: Figure) => {
+    if (figure.color === COLORS.BLACK) {
+      this.board.lostBlackFigures.push(figure);
+    } else {
+      this.board.lostWhiteFigures.push(figure);
+    }
   };
 }

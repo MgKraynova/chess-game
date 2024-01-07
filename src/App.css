@@ -51,7 +51,21 @@
   background-color: green;
 }
 
-
 .selectedCell {
   background-color: brown;
+}
+
+.lostFiguresTitleContainer {
+  display: flex;
+  gap: 4px;
+}
+
+.lostFiguresContainer {
+  background-color: burlywood;
+  height: 50%;
+}
+
+.boardContainer {
+  display: flex;
+  gap: 20px;
 }

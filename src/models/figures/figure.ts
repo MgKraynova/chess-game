@@ -4,12 +4,12 @@ import Logo from "../../assets/black-bishop.png";
 
 export enum FIGURE_NAME {
   FIGURE = "FIGURE",
-  KING = "KING",
-  KNIGHT = "KNIGHT", // конь
-  PAWN = "PAWN", // пешка
-  QUEEN = "QUEEN", // ферзь
-  ROOK = "ROOK", // ладья
-  BISHOP = "BISHOP", // слон
+  KING = "Король",
+  KNIGHT = "Конь", // конь
+  PAWN = "Пешка", // пешка
+  QUEEN = "Королева", // ферзь
+  ROOK = "Ладья", // ладья
+  BISHOP = "Слон", // слон
 }
 
 export type TFigureProps = {
@@ -46,6 +46,6 @@ export class Figure {
   }
 
   moveFigure(target: Cell) {
-    
+
   }
 }

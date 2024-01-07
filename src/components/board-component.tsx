@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../App.css";
 import { Board } from "../models/board";
 import { CellComponent } from "./cell-component";
 import { Cell } from "../models/cell";
-import { FIGURE_NAME, Figure } from "../models/figures/figure";
 import { Player } from "../models/player";
 import { COLORS } from "../models/color";
+import { LostFigures } from "./lost-figures-component";
 
 type TBoardComponentProps = {
   board: Board;
@@ -80,19 +80,31 @@ export const BoardComponent = ({
          Текущий игрок -{" "}
         {currentPlayer?.color === COLORS.BLACK ? "черный" : "белый"}
       </h3>
-      <div className="board">
-        {board.cells.map((row) =>
-          row.map((cell, cellIndex) => (
-            <CellComponent
-              isSelected={
-                selectedCell?.x === cell.x && selectedCell?.y === cell.y
-              }
-              cell={cell}
-              key={cellIndex}
-              handleSelectCell={handleSelectCell}
-            />
-          ))
-        )}
+      <div className="boardContainer">
+        <div className="board">
+          {board.cells.map((row) =>
+            row.map((cell, cellIndex) => (
+              <CellComponent
+                isSelected={
+                  selectedCell?.x === cell.x && selectedCell?.y === cell.y
+                }
+                cell={cell}
+                key={cellIndex}
+                handleSelectCell={handleSelectCell}
+              />
+            ))
+          )}
+        </div>
+        <div>
+          <LostFigures
+            title="Съеденные белые фигуры"
+            lostFigures={board.lostWhiteFigures}
+          />
+          <LostFigures
+            title="Съеденные черные фигуры"
+            lostFigures={board.lostBlackFigures}
+          />
+        </div>
       </div>
     </div>
   );
