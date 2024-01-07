@@ -4,6 +4,7 @@ import { BoardComponent } from "./components/board-component";
 import { Board } from "./models/board";
 import { Player } from "./models/player";
 import { COLORS } from "./models/color";
+import { Timer } from "./components/timer-component";
 
 export const App = () => {
   const [board, setBoard] = useState(new Board());
@@ -34,7 +35,13 @@ export const App = () => {
 
   return (
     <div className="app">
-      <BoardComponent currentPlayer={currentPlayer} switchPlayer={switchPlayer} board={board} setBoard={setBoard} />
+      <Timer restartGame={startNewGame} currentPlayer={currentPlayer} />
+      <BoardComponent
+        currentPlayer={currentPlayer}
+        switchPlayer={switchPlayer}
+        board={board}
+        setBoard={setBoard}
+      />
     </div>
   );
 };
