@@ -1,5 +1,7 @@
 # React + TypeScript + Vite
 
+![](game-review.gif)
+
 Шахматы сделаны по уроку Ulbi TV "Шахматы на React и TypeScript С НУЛЯ. Практикуем ООП".
 
 Дополнительно к уроку:
